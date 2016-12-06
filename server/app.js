@@ -34,9 +34,13 @@ app.post( '/testPost', urlEncodedParser, function( req, res ){
   console.log( 'testPost url hit. req.body:', req.body );
   // do work here
   // assemble object to return
-  var objectToReturn = req.body;
-  newAwards.push(objectToReturn);
-  console.log('new awards array: ', newAwards);
+  var objectFromUser = req.body;
+  newAwards.push(objectFromUser);
+  // console.log('new awards array: ', newAwards);
+  var objectToReturn = {
+    field0: newAwards
+  };
+  // console.log(objectToReturn);
   // return objectToReturn
   res.send( objectToReturn );
 }); // end testPost

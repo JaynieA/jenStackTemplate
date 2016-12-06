@@ -33,7 +33,17 @@ $( document ).ready( function(){
       url: '/testPost',
       data: objectToSend,
       success: function( response ){
+        var events = response.field0;
+        var newEvent = events[events.length-1];
+        console.log('parsed response', newEvent);
         console.log( 'back from post call:', response );
+
+        $('#eventsOutput').append('<div class="event"><div>');
+        var $el = $('#eventsOutput').children().last();
+        $el.append('<p>'+newEvent.eventName+'</p>');
+        $el.append('<p>'+newEvent.athleteName+'</p>');
+        $el.append('<p>'+newEvent.award+'</p>');
+
       },
       error: function(){
         console.log( 'error with ajax call...');

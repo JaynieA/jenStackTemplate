@@ -37,12 +37,15 @@ $( document ).ready( function(){
         var newEvent = events[events.length-1];
         console.log('parsed response', newEvent);
         console.log( 'back from post call:', response );
+        $('#eventsOutput').addClass('row');
+        $('#eventsOutput').addClass('text-center');
 
-        $('#eventsOutput').append('<div class="event"><div>');
+        $('#eventsOutput').append('<div class="event col-sm-4"><div>');
+
         var $el = $('#eventsOutput').children().last();
-        $el.append('<p>'+newEvent.eventName+'</p>');
-        $el.append('<p>'+newEvent.athleteName+'</p>');
-        $el.append('<p>'+newEvent.award+'</p>');
+        $el.append('<p>Event Name: '+newEvent.eventName+'</p>');
+        $el.append('<p>Athlete Name: '+newEvent.athleteName+'</p>');
+        $el.append('<p>Award: '+newEvent.award+'</p>');
 
       },
       error: function(){

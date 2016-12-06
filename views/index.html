@@ -15,17 +15,30 @@
 </head>
 
 <body>
-    <h1>JEN Stack Example</h1>
-    <label for="eventName">Event Name:</label>
-    <input type="text" id="eventName">
-    <label for="athleteName">Athlete Name:</label>
-    <input type="text" id="athleteName">
-    <label for="award">Award:</label>
-    <input type="text" id="award">
-    <button id="testGetButton">testGet</button>
-    <button id="testPostButton">testPost</button>
-    <div id="getOutput"></div>
-    <div id="eventsOutput"></div>
+    <h1 class="text-center">JEN Stack Example</h1>
+    <div class="container">
+        <form class="">
+            <div class="form-group">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="athleteName">Athlete Name:</label>
+                <input type="text" id="athleteName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="award">Award:</label>
+                <input type="text" id="award" class="form-control">
+            </div>
+            <button id="testGetButton" class="btn btn-default" type="button">testGet</button>
+            <button id="testPostButton" class="btn btn-default" type="button">testPost</button>
+        </form>
+
+
+        <div id="getOutput"></div>
+        <div id="eventsOutput"></div>
+    </div>
+
 </body>
 
 </html>

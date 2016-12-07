@@ -41,20 +41,7 @@ $( document ).ready( function(){
         console.log( 'back from post call:', response );
         //push each new event into events array
         eventsArray.push(newEvent);
-        //append events to DOM
-        var eventsOutput = $('#eventsOutput');
-        eventsOutput.addClass('row');
-        eventsOutput.addClass('text-center');
-
-        eventsOutput.append('<div class="col-sm-4"></div>');
-        var $el = eventsOutput.children().last();
-        $el.append('<div class="event"></div>');
-        $eventDiv = $el.find('.event');
-
-        $eventDiv.append('<p>Event Name: '+newEvent.eventName+'</p>');
-        $eventDiv.append('<p>Athlete Name: '+newEvent.athleteName+'</p>');
-        $eventDiv.append('<p>Award: '+newEvent.award+'</p>');
-
+        appendEventsToDom(newEvent);
       },
       error: function(){
         console.log( 'error with ajax call...');
@@ -85,20 +72,25 @@ $( document ).ready( function(){
 
     $('#eventsOutput').html('');
     for (var i = 0; i < eventsArray.length; i++) {
-      var eventsOutput = $('#eventsOutput');
-      eventsOutput.addClass('row');
-      eventsOutput.addClass('text-center');
-
-      eventsOutput.append('<div class="col-sm-4"></div>');
-      var $el = eventsOutput.children().last();
-      $el.append('<div class="event"></div>');
-      $eventDiv = $el.find('.event');
-
-      $eventDiv.append('<p>Event Name: '+eventsArray[i].eventName+'</p>');
-      $eventDiv.append('<p>Athlete Name: '+eventsArray[i].athleteName+'</p>');
-      $eventDiv.append('<p>Award: '+eventsArray[i].award+'</p>');
+      appendEventsToDom(eventsArray[i]);
 
     }
   }); // end sortButton
+  
+  //append events to DOM
+  var appendEventsToDom = function(array) {
+    var eventsOutput = $('#eventsOutput');
+    eventsOutput.addClass('row');
+    eventsOutput.addClass('text-center');
+
+    eventsOutput.append('<div class="col-sm-4"></div>');
+    var $el = eventsOutput.children().last();
+    $el.append('<div class="event"></div>');
+    $eventDiv = $el.find('.event');
+
+    $eventDiv.append('<p>Event Name: '+array.eventName+'</p>');
+    $eventDiv.append('<p>Athlete Name: '+array.athleteName+'</p>');
+    $eventDiv.append('<p>Award: '+array.award+'</p>');
+  };
 
 }); //end doc ready
